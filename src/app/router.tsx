@@ -1,14 +1,20 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Suspense } from "react";
+import { Layout } from "../shared/components/Layout";
 
 export const router = createBrowserRouter([
   {
-    path: "/",
-    element: (
-      <Suspense fallback={null}>
-        <></>
-      </Suspense>
-    ),
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: (
+          <Suspense fallback={null}>
+            <></>
+          </Suspense>
+        ),
+      },
+    ],
   },
   {
     path: "*",

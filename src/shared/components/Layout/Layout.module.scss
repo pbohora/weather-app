@@ -1,0 +1,24 @@
+@use "../../../styles/mixins" as *;
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.main {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  min-height: 100vh;
+  box-sizing: border-box;
+
+  @include respond-to("md") {
+    padding: 4rem;
+  }
+}

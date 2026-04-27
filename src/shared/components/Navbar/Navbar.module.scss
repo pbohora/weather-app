@@ -1,0 +1,71 @@
+@use "../../../styles/mixins" as *;
+
+.navbar {
+  width: 100%;
+  background: var(--color-bg);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  color: white;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom: 1px solid transparent;
+}
+
+.scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(
+    7,
+    89,
+    133,
+    0.85
+  ); // Added a bit of transparency when scrolled
+  backdrop-filter: blur(20px);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  gap: 1rem;
+  transition: padding 0.3s ease;
+
+  @include respond-to("md") {
+    padding: 1.25rem 4rem;
+    gap: 2rem;
+  }
+}
+
+.scrolled .container {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.logoGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logoText {
+  font-size: 1rem;
+  font-weight: 600;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+  display: none;
+
+  @include respond-to("sm") {
+    display: block;
+  }
+}
+
+@media (max-width: 639px) {
+  .center {
+    display: flex;
+    gap: 0.75rem;
+  }
+}
