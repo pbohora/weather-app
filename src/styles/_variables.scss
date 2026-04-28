@@ -17,5 +17,42 @@
   --radius-2xl: 2.5rem;
   --radius-full: 9999px;
 
-  --font-sans: "Outfit", sans-serif;
+  --font-sans: 'Outfit', sans-serif;
+
+  /* font sizes */
+  --text-xs: 0.75rem;
+  --text-sm: 0.9rem;
+  --text-base: 1rem;
+  --text-md: 1.1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.3rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.75rem;
+  --text-4xl: 2rem;
+  --text-5xl: 2.5rem;
+  --text-6xl: 3.5rem;
+  --text-hero-sm: 6rem;
+  --text-hero: 8rem;
+  --text-hero-lg: 12rem;
+
+  /* font weights */
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* glass surface colors */
+  --glass-bg-subtle:   rgba(255, 255, 255, 0.05);
+  --glass-bg:          rgba(255, 255, 255, 0.06);
+  --glass-bg-card:     rgba(255, 255, 255, 0.08);
+  --glass-bg-hover:    rgba(255, 255, 255, 0.15);
+  --glass-border:      rgba(255, 255, 255, 0.08);
+  --glass-border-soft: rgba(255, 255, 255, 0.05);
+  --glass-border-btn:  rgba(255, 255, 255, 0.1);
+  --glass-border-hover: rgba(255, 255, 255, 0.2);
+  --glass-icon:        rgba(255, 255, 255, 0.5);
+  --glass-muted:       rgba(255, 255, 255, 0.6);
+  --glass-muted-text:  rgba(255, 255, 255, 0.7);
+  --glass-dim:         rgba(255, 255, 255, 0.15);
 }

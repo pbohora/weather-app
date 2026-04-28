@@ -11,23 +11,21 @@
 }
 
 .code {
-  font-size: 5rem;
-  font-weight: 700;
+  @include text-page-code;
   line-height: 1;
-  color: rgba(255, 255, 255, 0.15);
+  color: var(--glass-dim);
   letter-spacing: -0.05em;
 }
 
 .title {
-  font-size: 1.75rem;
-  font-weight: 600;
+  @include text-page-title;
   color: var(--color-glass-text);
   letter-spacing: -0.02em;
 }
 
 .description {
   color: var(--color-glass-text-secondary);
-  font-size: 1rem;
+  font-size: var(--text-base);
   line-height: 1.6;
   max-width: 320px;
   margin-bottom: 0.5rem;

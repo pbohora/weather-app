@@ -15,8 +15,7 @@
 }
 
 .locationName {
-  font-size: 1.5rem;
-  font-weight: 500;
+  @include text-location;
   color: white;
   letter-spacing: -0.01em;
 }
@@ -27,8 +26,7 @@
   gap: 0.75rem;
   opacity: 0.5;
   color: white;
-  font-size: 1rem;
-  font-weight: 400;
+  @include text-body;
 }
 
 .separator {
@@ -37,7 +35,7 @@
 
 .time,
 .date {
-  font-weight: 500;
+  font-weight: var(--fw-medium);
 }
 
 .heroRow {
@@ -66,8 +64,7 @@
 }
 
 .statusText {
-  font-size: 2.5rem;
-  font-weight: 400;
+  @include text-status;
   line-height: 1.1;
   letter-spacing: -0.04em;
   color: white;
@@ -82,13 +79,12 @@
 }
 
 .largeTemp {
-  font-size: 8rem;
-  font-weight: 300;
+  @include text-hero-temp;
   color: white;
   line-height: 0.9;
 
   @include respond-to('sm') {
-    font-size: 12rem;
+    font-size: var(--text-hero-lg);
   }
 }
 
@@ -101,14 +97,12 @@
 }
 
 .feelsLabel {
-  font-size: 1rem;
-  font-weight: 500;
+  @include text-body-medium;
   margin-bottom: 0.1rem;
 }
 
 .feelsValue {
-  font-size: 2.5rem;
-  font-weight: 500;
+  @include text-secondary-value;
   letter-spacing: -0.01em;
 }
 
@@ -117,11 +111,8 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   padding: 2rem;
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: var(--radius-2xl);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--glass-bg);
+  @include glass-card;
   box-shadow: 0 10px 32px 0 rgba(0, 0, 0, 0.1);
   width: 100%;
 
@@ -142,7 +133,7 @@
 }
 
 .statIcon {
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--glass-icon);
 }
 
 .statInfo {
@@ -151,14 +142,12 @@
 }
 
 .statLabel {
-  font-size: 0.75rem;
+  @include text-label-xs;
   opacity: 0.5;
-  font-weight: 500;
 }
 
 .statValue {
-  font-size: 1.3rem;
-  font-weight: 500;
+  @include text-value-xl;
   color: white;
 }
 
@@ -168,6 +157,6 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   padding-bottom: 1.25rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid var(--glass-border);
   margin-bottom: 0.5rem;
 }

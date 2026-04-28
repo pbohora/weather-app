@@ -1,3 +1,82 @@
+// Typography mixins — size + weight combos used in more than one place
+@mixin text-label {
+  font-size: var(--text-sm);
+  font-weight: var(--fw-medium);
+}
+
+@mixin text-label-xs {
+  font-size: var(--text-xs);
+  font-weight: var(--fw-medium);
+}
+
+@mixin text-value {
+  font-size: var(--text-lg);
+  font-weight: var(--fw-semibold);
+}
+
+@mixin text-value-xl {
+  font-size: var(--text-xl);
+  font-weight: var(--fw-medium);
+}
+
+@mixin text-body {
+  font-size: var(--text-base);
+  font-weight: var(--fw-regular);
+}
+
+@mixin text-body-medium {
+  font-size: var(--text-base);
+  font-weight: var(--fw-medium);
+}
+
+@mixin text-secondary-label {
+  font-size: var(--text-md);
+  font-weight: var(--fw-medium);
+}
+
+@mixin text-secondary-value {
+  font-size: var(--text-5xl);
+  font-weight: var(--fw-medium);
+}
+
+@mixin text-location {
+  font-size: var(--text-2xl);
+  font-weight: var(--fw-medium);
+}
+
+@mixin text-status {
+  font-size: var(--text-5xl);
+  font-weight: var(--fw-regular);
+}
+
+@mixin text-hero-temp {
+  font-size: var(--text-hero);
+  font-weight: var(--fw-light);
+}
+
+@mixin text-logo {
+  font-size: var(--text-base);
+  font-weight: var(--fw-semibold);
+}
+
+@mixin text-page-code {
+  font-size: 5rem;
+  font-weight: var(--fw-bold);
+}
+
+@mixin text-page-title {
+  font-size: var(--text-3xl);
+  font-weight: var(--fw-semibold);
+}
+
+// Glass surface mixin — backdrop-filter + border combo used on every card
+@mixin glass-card {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-2xl);
+}
+
 @mixin flex-center {
   display: flex;
   align-items: center;

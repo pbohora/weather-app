@@ -15,13 +15,12 @@
 }
 
 .largeTemp {
-  font-size: 8rem;
-  font-weight: 300;
+  @include text-hero-temp;
   color: white;
   line-height: 0.85;
 
   @include respond-to('sm') {
-    font-size: 12rem;
+    font-size: var(--text-hero-lg);
   }
 }
 
@@ -34,47 +33,44 @@
 }
 
 .secondaryLabel {
-  font-size: 1.1rem;
-  font-weight: 500;
+  @include text-secondary-label;
   margin-bottom: 0.1rem;
 }
 
 .secondaryValue {
-  font-size: 2.5rem;
-  font-weight: 500;
+  @include text-secondary-value;
   letter-spacing: -0.01em;
 }
 
 .statusText {
-  font-size: 2.5rem;
-  font-weight: 400;
+  @include text-status;
   line-height: 1.1;
   letter-spacing: -0.04em;
   color: white;
   max-width: 600px;
 
   @include respond-to('sm') {
-    font-size: 3.5rem;
+    font-size: var(--text-6xl);
   }
 }
 
 // Compact variant for dialogs
 .compact {
   .largeTemp {
-    font-size: 6rem;
+    font-size: var(--text-hero-sm);
     @include respond-to('sm') {
-      font-size: 8rem;
+      font-size: var(--text-hero);
     }
   }
 
   .secondaryValue {
-    font-size: 2rem;
+    font-size: var(--text-4xl);
   }
 
   .statusText {
-    font-size: 2rem;
+    font-size: var(--text-4xl);
     @include respond-to('sm') {
-      font-size: 2.5rem;
+      font-size: var(--text-5xl);
     }
   }
 }

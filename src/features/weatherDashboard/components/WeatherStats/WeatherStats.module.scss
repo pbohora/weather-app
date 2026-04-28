@@ -5,11 +5,8 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   padding: 2rem;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: var(--radius-2xl);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--glass-bg-subtle);
+  @include glass-card;
   width: 100%;
 
   @include respond-to('lg') {
@@ -27,7 +24,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--glass-icon);
   flex-shrink: 0;
 
   svg {
@@ -42,14 +39,12 @@
 }
 
 .statLabel {
-  font-size: 0.9rem;
+  @include text-label;
   opacity: 0.5;
-  font-weight: 500;
 }
 
 .statValue {
-  font-size: 1.25rem;
-  font-weight: 600;
+  @include text-value;
   color: white;
 }
 
@@ -59,7 +54,7 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   padding-bottom: 1.25rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid var(--glass-border);
   margin-bottom: 0.5rem;
 
   .statLabel {
