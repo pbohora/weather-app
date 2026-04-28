@@ -1,0 +1,66 @@
+@use '../../../../styles/mixins' as *;
+
+.heroRow {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+
+  @include respond-to('lg') {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+  }
+}
+
+.mainDisplay {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  flex: 1;
+}
+
+.headerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.date {
+  @include text-page-title;
+  color: white;
+  letter-spacing: -0.02em;
+
+  @include respond-to('sm') {
+    font-size: var(--text-5xl);
+  }
+}
+
+.description {
+  @include text-body-medium;
+  color: var(--glass-muted-text);
+
+  @include respond-to('sm') {
+    font-size: var(--text-lg);
+  }
+}
+
+.detailsShelf {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: var(--glass-bg-card);
+  @include glass-card;
+  width: 100%;
+
+  @include respond-to('sm') {
+    gap: 2rem;
+    padding: 3rem;
+    border-radius: 3rem;
+  }
+
+  @include respond-to('lg') {
+    width: 500px;
+  }
+}

@@ -1,10 +1,12 @@
-import { useMemo, useRef } from 'react';
+import { useMemo } from 'react';
 import { type WeatherHour } from '../../types/weather.types';
 import { formatTime, formatTemp } from '../../utils/formatWeather';
 import WeatherIcon from '../WeatherCard/WeatherIcon';
-import { Droplets, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Droplets } from 'lucide-react';
 import styles from './HourlyForecast.module.scss';
 import type { TemperatureUnit } from '../../api/weatherApi.types';
+import { useHorizontalScroll } from '../../../../shared/hooks/useHorizontalScroll';
+import ScrollButtons from '../../../../shared/components/ScrollButtons';
 
 interface HourlyForecastProps {
   readonly hourlyData: WeatherHour[];
@@ -12,7 +14,7 @@ interface HourlyForecastProps {
 }
 
 const HourlyForecast = ({ hourlyData, unit }: HourlyForecastProps) => {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const { scrollContainerRef, scroll } = useHorizontalScroll();
 
   // Show only next 24 hours of data
   const currentHourlyData = useMemo(() => {
@@ -27,38 +29,15 @@ const HourlyForecast = ({ hourlyData, unit }: HourlyForecastProps) => {
     return hourlyData.slice(firstHourOfDayIndex, firstHourOfDayIndex + 24);
   }, [hourlyData]);
 
-  const scroll = (direction: 'left' | 'right') => {
-    if (scrollContainerRef.current) {
-      const scrollAmount = 400;
-      scrollContainerRef.current.scrollBy({
-        left: direction === 'left' ? -scrollAmount : scrollAmount,
-        behavior: 'smooth',
-      });
-    }
-  };
-
   return (
     <section className={styles.container}>
       <div className={styles.header}>
         <h3 className={styles.title}>Hourly Forecast</h3>
-        <div className={styles.navButtons}>
-          <button
-            className={styles.navButton}
-            onClick={() => scroll('left')}
-            aria-label="Scroll left"
-            title="Previous hours"
-          >
-            <ChevronLeft size={20} />
-          </button>
-          <button
-            className={styles.navButton}
-            onClick={() => scroll('right')}
-            aria-label="Scroll right"
-            title="Next hours"
-          >
-            <ChevronRight size={20} />
-          </button>
-        </div>
+        <ScrollButtons 
+          onScroll={scroll} 
+          leftLabel="Scroll left" 
+          rightLabel="Scroll right" 
+        />
       </div>
 
       <div ref={scrollContainerRef} className={styles.hourlyList}>

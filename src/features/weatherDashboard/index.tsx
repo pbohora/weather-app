@@ -1,4 +1,5 @@
 import CurrentWeather from './components/CurrentWeather';
+import DailyForecast from './components/DailyForecast';
 import HourlyForecast from './components/HourlyForecast';
 import { useWeatherQuery } from './hooks/useWeatherQuery';
 
@@ -30,6 +31,7 @@ export const WeatherDashboard = () => {
           />
 
           <HourlyForecast hourlyData={weather.hourly} unit={'celsius'} />
+          <DailyForecast dailyForecast={weather.daily} unit={'celsius'} />
         </>
       )}
     </div>

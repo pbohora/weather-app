@@ -16,53 +16,63 @@
   color: white;
 }
 
-.hourlyList {
+.grid {
   @include horizontal-scroll-container;
 }
 
-.hourlyCard {
+.card {
   flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.25rem;
   padding: 1.5rem 2rem;
-  min-width: 130px;
+  min-width: 140px;
   background: var(--glass-bg-subtle);
   backdrop-filter: blur(10px);
   border: 1px solid var(--glass-border-btn);
   border-radius: var(--radius-xl);
   transition: all 0.3s ease;
+  cursor: pointer;
 
   &:hover {
     background: var(--glass-bg-hover);
     transform: translateY(-4px);
   }
+
+  &.selected {
+    background: var(--glass-bg-active);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  }
 }
 
-.time {
-  font-size: var(--text-xs);
+.dayName {
+  font-size: var(--text-sm);
   font-weight: var(--fw-bold);
   color: var(--glass-muted);
 }
 
 .icon {
-  width: 2rem;
-  height: 2rem;
-  color: white;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
-.temp {
-  font-size: var(--text-base);
-  font-weight: var(--fw-bold);
-  color: white;
-}
-
-.precip {
+.temperatures {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 0.25rem;
-  font-size: var(--text-xs);
+}
+
+.max {
+  font-size: var(--text-lg);
   font-weight: var(--fw-bold);
-  color: #38bdf8;
+  color: white;
+}
+
+.min {
+  font-size: var(--text-sm);
+  font-weight: var(--fw-medium);
+  color: var(--glass-muted);
 }

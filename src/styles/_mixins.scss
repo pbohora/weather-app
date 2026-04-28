@@ -87,6 +87,15 @@
   }
 }
 
+@mixin horizontal-scroll-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 1.5rem;
+  padding: 0.5rem;
+  @include scrollbar-hidden;
+  @include fade-in-slide;
+}
+
 @mixin fade-in-slide($distance: 20px, $duration: 0.5s) {
   @keyframes fadeInSlide {
     from {

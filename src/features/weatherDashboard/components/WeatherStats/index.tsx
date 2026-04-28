@@ -10,9 +10,9 @@ interface WeatherStat {
 
 interface WeatherStatsProps {
   readonly stats: WeatherStat[];
-  readonly sunrise?: string;
-  readonly sunset?: string;
-  readonly className?: string;
+  readonly sunrise?: string | undefined;
+  readonly sunset?: string | undefined;
+  readonly className?: string | undefined;
 }
 
 const WeatherStats = ({ stats, sunrise, sunset, className }: WeatherStatsProps) => {

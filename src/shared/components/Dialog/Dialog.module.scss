@@ -1,0 +1,80 @@
+@use '../../../styles/mixins' as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  @include flex-center;
+  padding: 1rem;
+  animation: fadeIn 0.3s ease-out;
+
+  @include respond-to('sm') {
+    padding: 1.5rem;
+  }
+}
+
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: rgba(14, 165, 233, 0.3);
+  backdrop-filter: blur(60px);
+  -webkit-backdrop-filter: blur(60px);
+  border: 1px solid var(--glass-border-hover);
+  border-radius: var(--radius-2xl);
+  padding: 2rem;
+  box-shadow: var(--glass-shadow);
+  animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  color: white;
+  @include scrollbar-hidden;
+
+  @include respond-to('sm') {
+    border-radius: 4rem;
+    padding: 4rem;
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  @include flex-center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: var(--glass-bg-card);
+  border: 1px solid var(--glass-border-soft);
+  border-radius: var(--radius-full);
+  color: white;
+  transition: all 0.3s ease;
+  z-index: 10;
+
+  @include respond-to('sm') {
+    top: 2rem;
+    right: 2rem;
+  }
+
+  &:hover {
+    background: var(--glass-dim);
+    transform: rotate(90deg) scale(1.1);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

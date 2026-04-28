@@ -1,5 +1,5 @@
 import type { WeatherApiResponse } from '../features/weatherDashboard/api/weatherApi.types';
-import type { CurrentWeather } from '../features/weatherDashboard/types/weather.types';
+import type { CurrentWeather, WeatherDay } from '../features/weatherDashboard/types/weather.types';
 import type { Location } from '../features/weatherDashboard/components/CurrentWeather';
 
 export function makeRawWeather(overrides: Partial<WeatherApiResponse> = {}): WeatherApiResponse {
@@ -58,6 +58,30 @@ export const mockCurrentWeather: CurrentWeather = {
   uvIndex: 3,
   isDay: true,
 };
+
+export const mockWeatherDay: WeatherDay = {
+  date: '2024-06-16',
+  maxTemp: 22,
+  minTemp: 14,
+  weatherCode: 0,
+  icon: 'sun',
+  precipitation: 0,
+  precipitationProb: 5,
+  maxWind: 12,
+  sunrise: '2024-06-16T04:01:00',
+  sunset: '2024-06-16T21:58:00',
+  uvIndex: 3,
+  apparentMaxTemp: 21,
+  apparentMinTemp: 13,
+};
+
+export const mockDailyForecast: WeatherDay[] = [
+  // index 0 = today (sliced out by DailyForecast)
+  { ...mockWeatherDay, date: '2024-06-15', maxTemp: 20, minTemp: 12 },
+  { ...mockWeatherDay, date: '2024-06-16' },
+  { ...mockWeatherDay, date: '2024-06-17', maxTemp: 18, minTemp: 11, weatherCode: 61, icon: 'cloud-rain' },
+  { ...mockWeatherDay, date: '2024-06-18', maxTemp: 15, minTemp: 10, weatherCode: 95, icon: 'cloud-lightning' },
+];
 
 export const mockStatsData = [
   { label: 'Wind Speed', value: '15 km/h' },

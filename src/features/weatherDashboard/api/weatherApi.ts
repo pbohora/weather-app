@@ -38,7 +38,7 @@ const STATIC_PARAMS = {
   daily: DAILY_FIELDS,
   wind_speed_unit: 'kmh',
   timezone: 'auto',
-  forecast_days: 7,
+  forecast_days: 8,
 } as const;
 
 export async function fetchWeather(params: WeatherRequestParams): Promise<WeatherApiResponse> {
