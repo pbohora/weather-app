@@ -1,13 +1,11 @@
-import { useQuery } from "@tanstack/react-query";
-import { fetchWeather } from "../api/weatherApi";
-import type { Coordinates, Unit } from "../api/weatherApi.types";
+import { useQuery } from '@tanstack/react-query';
+import { fetchWeather } from '../api/weatherApi';
+import type { Coordinates, TemperatureUnit } from '../api/weatherApi.types';
+import { transformWeather } from '../utils/transformWeather';
 
-export function useWeatherQuery(
-  location: Coordinates & { id: number },
-  unit: Unit,
-) {
+export function useWeatherQuery(location: Coordinates & { id: number }, unit: TemperatureUnit) {
   return useQuery({
-    queryKey: ["weather", location?.id, unit],
+    queryKey: ['weather', location?.id, unit],
     queryFn: () =>
       fetchWeather({
         latitude: location!.latitude,
@@ -15,5 +13,6 @@ export function useWeatherQuery(
         unit,
       }),
     enabled: location !== null,
+    select: transformWeather,
   });
 }

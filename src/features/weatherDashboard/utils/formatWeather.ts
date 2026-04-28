@@ -1,0 +1,52 @@
+export function getWmoDescription(code: number): string {
+  const descriptions: Record<number, string> = {
+    0: 'Clear Sky',
+    1: 'Mainly Clear',
+    2: 'Partly Cloudy',
+    3: 'Overcast',
+    45: 'Foggy',
+    48: 'Depositing Rime Fog',
+    51: 'Light Drizzle',
+    53: 'Moderate Drizzle',
+    55: 'Dense Drizzle',
+    56: 'Light Freezing Drizzle',
+    57: 'Dense Freezing Drizzle',
+    61: 'Slight Rain',
+    63: 'Moderate Rain',
+    65: 'Heavy Rain',
+    66: 'Light Freezing Rain',
+    67: 'Heavy Freezing Rain',
+    71: 'Slight Snow Fall',
+    73: 'Moderate Snow Fall',
+    75: 'Heavy Snow Fall',
+    77: 'Snow Grains',
+    80: 'Slight Rain Showers',
+    81: 'Moderate Rain Showers',
+    82: 'Violent Rain Showers',
+    85: 'Slight Snow Showers',
+    86: 'Heavy Snow Showers',
+    95: 'Thunderstorm',
+    96: 'Thunderstorm with Slight Hail',
+    99: 'Thunderstorm with Heavy Hail',
+  };
+  return descriptions[code] || 'Uncertain Weather';
+}
+
+export function formatTemp(temp: number, unit: 'celsius' | 'fahrenheit'): string {
+  const rounded = Math.round(temp);
+  return `${rounded}°${unit === 'celsius' ? 'C' : 'F'}`;
+}
+
+export function formatWind(speed: number): string {
+  return `${Math.round(speed)} km/h`;
+}
+
+export function formatDate(dateStr: string): string {
+  const date = new Date(dateStr);
+  return date.toLocaleDateString('en-US', { weekday: 'short', day: 'numeric', month: 'short' });
+}
+
+export function formatTime(dateStr: string): string {
+  const date = new Date(dateStr);
+  return date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false });
+}

@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from 'zod';
 
 export const weatherApiResponseSchema = z.object({
   latitude: z.number(),
@@ -41,7 +41,7 @@ export const weatherApiResponseSchema = z.object({
 
 export type WeatherApiResponse = z.infer<typeof weatherApiResponseSchema>;
 
-export type Unit = "celsius" | "fahrenheit";
+export type TemperatureUnit = 'celsius' | 'fahrenheit';
 
 export interface Coordinates {
   latitude: number;
@@ -49,5 +49,5 @@ export interface Coordinates {
 }
 
 export interface WeatherRequestParams extends Coordinates {
-  unit: Unit;
+  unit: TemperatureUnit;
 }
