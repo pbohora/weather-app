@@ -1,0 +1,31 @@
+@use '../../../styles/mixins' as *;
+
+.container {
+  @include flex-center;
+  flex-direction: column;
+  text-align: center;
+  padding: 6rem 2rem;
+  background: var(--error-bg);
+  backdrop-filter: blur(20px);
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--error-border);
+  gap: 1.5rem;
+  color: white;
+
+  h2 {
+    font-size: var(--text-6xl);
+    font-weight: var(--fw-medium);
+    color: #4aafff;
+  }
+
+  p {
+    color: var(--glass-muted);
+    font-size: var(--text-lg);
+    max-width: 400px;
+    line-height: 1.6;
+  }
+}
+
+.icon {
+  color: var(--error-icon);
+}

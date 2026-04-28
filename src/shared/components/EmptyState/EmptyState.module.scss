@@ -1,0 +1,30 @@
+@use '../../../styles/mixins' as *;
+
+.container {
+  @include flex-center;
+  flex-direction: column;
+  text-align: center;
+  padding: 8rem 2rem;
+  gap: 2rem;
+  background: var(--glass-bg-subtle);
+  @include glass-card;
+  min-height: 500px;
+
+  h2 {
+    color: white;
+    font-size: var(--text-6xl);
+    font-weight: var(--fw-medium);
+  }
+
+  p {
+    color: var(--glass-muted);
+    font-size: var(--text-lg);
+    max-width: 500px;
+    line-height: 1.6;
+  }
+}
+
+.icon {
+  color: white;
+  opacity: 0.5;
+}

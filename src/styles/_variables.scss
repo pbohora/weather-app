@@ -55,4 +55,9 @@
   --glass-muted:       rgba(255, 255, 255, 0.6);
   --glass-muted-text:  rgba(255, 255, 255, 0.7);
   --glass-dim:         rgba(255, 255, 255, 0.15);
+
+  /* error / danger state colors */
+  --error-bg:          rgba(239, 68, 68, 0.1);
+  --error-border:      rgba(239, 68, 68, 0.3);
+  --error-icon:        rgba(239, 68, 68, 0.8);
 }

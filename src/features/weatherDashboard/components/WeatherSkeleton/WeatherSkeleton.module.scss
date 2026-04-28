@@ -1,0 +1,121 @@
+@use '../../../../styles/mixins' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+}
+
+// Hero Section Mirroring CurrentWeather
+.heroRow {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+
+  @include respond-to('lg') {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 4rem;
+  }
+}
+
+.mainDisplay {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.locationHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.locationName {
+  width: 250px;
+  height: 2.5rem;
+  border-radius: var(--radius-xl);
+}
+
+.tempDisplay {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.tempBadge {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.5rem;
+}
+
+.largeTemp {
+  width: 180px;
+  height: 6rem;
+  border-radius: var(--radius-xl);
+}
+
+.feelsLike {
+  width: 100px;
+  height: 3rem;
+  border-radius: var(--radius-xl);
+  margin-bottom: 0.75rem;
+}
+
+.statusText {
+  width: 80%;
+  height: 4rem;
+  border-radius: var(--radius-xl);
+}
+
+.detailsShelf {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  background: var(--glass-bg-subtle);
+  @include glass-card;
+  width: 100%;
+
+  @include respond-to('lg') {
+    width: 480px;
+  }
+}
+
+.statItem {
+  height: 3.5rem;
+  border-radius: var(--radius-xl);
+}
+
+// Generic Section Styles
+.sectionTitle {
+  width: 200px;
+  height: 1.5rem;
+  border-radius: var(--radius-xl);
+  margin-bottom: 1.5rem;
+}
+
+.hourlyRow {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: hidden;
+}
+
+.hourlyCard {
+  min-width: 140px;
+  height: 220px;
+  border-radius: var(--radius-2xl);
+  flex: 0 0 auto;
+}
+
+.chart {
+  width: 100%;
+  height: 350px;
+  border-radius: var(--radius-2xl);
+}
