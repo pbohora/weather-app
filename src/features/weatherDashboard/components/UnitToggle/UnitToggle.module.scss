@@ -1,0 +1,52 @@
+@use '../../../../styles/mixins' as *;
+
+.container {
+  position: relative;
+  display: flex;
+  background: var(--glass-bg-subtle);
+  backdrop-filter: blur(10px);
+  padding: 0.25rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--glass-border-btn);
+  overflow: hidden;
+}
+
+.indicator {
+  position: absolute;
+  top: 0.25rem;
+  bottom: 0.25rem;
+  left: 0.25rem;
+  width: calc(50% - 0.25rem);
+  background: var(--glass-bg-hover);
+  border-radius: calc(var(--radius-xl) - 0.125rem);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+
+  &.isF {
+    transform: translateX(100%);
+  }
+}
+
+.button {
+  position: relative;
+  width: 2.75rem;
+  height: 2.25rem;
+  @include flex-center;
+  font-size: var(--text-sm);
+  font-weight: var(--fw-bold);
+  color: var(--glass-icon);
+  background: transparent;
+  border: none;
+  transition: color 0.3s ease;
+  cursor: pointer;
+  z-index: 1;
+
+  &:hover:not(.active) {
+    color: var(--glass-muted-text);
+  }
+
+  &.active {
+    color: white;
+  }
+}

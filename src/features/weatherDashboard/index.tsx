@@ -4,15 +4,17 @@ import DailyForecast from './components/DailyForecast';
 import HourlyForecast from './components/HourlyForecast';
 import WeatherSkeleton from './components/WeatherSkeleton';
 import { useWeatherQuery } from './hooks/useWeatherQuery';
+import { useWeatherStore } from './store/weatherStore';
 import styles from './WeatherDashboard.module.scss';
 
 export const WeatherDashboard = () => {
+  const { unit } = useWeatherStore();
   const {
     data: weather,
     isLoading,
     isError,
     refetch,
-  } = useWeatherQuery({ latitude: 60.154512994425566, longitude: 24.74072006879877, id: 1234 }, 'celsius');
+  } = useWeatherQuery({ latitude: 60.154512994425566, longitude: 24.74072006879877, id: 1234 }, unit);
 
   if (isLoading) return <WeatherSkeleton />;
 
@@ -40,13 +42,13 @@ export const WeatherDashboard = () => {
               latitude: 60.154512994425566,
               longitude: 24.74072006879877,
             }}
-            unit={'celsius'}
+            unit={unit}
             sunrise={weather.daily[0]?.sunrise || ''}
             sunset={weather.daily[0]?.sunset || ''}
           />
 
-          <HourlyForecast hourlyData={weather.hourly} unit={'celsius'} />
-          <DailyForecast dailyForecast={weather.daily} unit={'celsius'} />
+          <HourlyForecast hourlyData={weather.hourly} unit={unit} />
+          <DailyForecast dailyForecast={weather.daily} unit={unit} />
         </>
       )}
     </div>

@@ -1,7 +1,8 @@
-import { CloudSunRain } from "lucide-react";
-import styles from "./Navbar.module.scss";
-import { clsx } from "clsx";
-import { useScrolled } from "../../hooks/useScrolled";
+import { CloudSunRain } from 'lucide-react';
+import styles from './Navbar.module.scss';
+import { clsx } from 'clsx';
+import { useScrolled } from '../../hooks/useScrolled';
+import UnitToggle from '../../../features/weatherDashboard/components/UnitToggle';
 
 export const Navbar = () => {
   const isScrolled = useScrolled();
@@ -15,6 +16,7 @@ export const Navbar = () => {
             <span className={styles.logoText}>Weather Forecast</span>
           </div>
         </div>
+        <UnitToggle />
       </div>
     </nav>
   );
