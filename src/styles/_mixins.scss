@@ -71,10 +71,35 @@
 
 // Glass surface mixin — backdrop-filter + border combo used on every card
 @mixin glass-card {
+  padding: 2rem;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-2xl);
+}
+
+@mixin scrollbar-hidden {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@mixin fade-in-slide($distance: 20px, $duration: 0.5s) {
+  @keyframes fadeInSlide {
+    from {
+      opacity: 0;
+      transform: translateX($distance);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  animation: fadeInSlide $duration ease-out;
 }
 
 @mixin flex-center {

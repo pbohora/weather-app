@@ -110,7 +110,6 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
-  padding: 2rem;
   background: var(--glass-bg);
   @include glass-card;
   box-shadow: 0 10px 32px 0 rgba(0, 0, 0, 0.1);

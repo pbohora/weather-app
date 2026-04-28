@@ -1,4 +1,5 @@
 import CurrentWeather from './components/CurrentWeather';
+import HourlyForecast from './components/HourlyForecast';
 import { useWeatherQuery } from './hooks/useWeatherQuery';
 
 export const WeatherDashboard = () => {
@@ -13,19 +14,23 @@ export const WeatherDashboard = () => {
   return (
     <div>
       {weather && (
-        <CurrentWeather
-          currentWeather={weather?.current}
-          location={{
-            id: 1234,
-            name: 'Helsinki',
-            country: 'Finland',
-            latitude: 60.154512994425566,
-            longitude: 24.74072006879877,
-          }}
-          unit={'celsius'}
-          sunrise={weather.daily[0]?.sunrise || ''}
-          sunset={weather.daily[0]?.sunset || ''}
-        />
+        <>
+          <CurrentWeather
+            currentWeather={weather?.current}
+            location={{
+              id: 1234,
+              name: 'Helsinki',
+              country: 'Finland',
+              latitude: 60.154512994425566,
+              longitude: 24.74072006879877,
+            }}
+            unit={'celsius'}
+            sunrise={weather.daily[0]?.sunrise || ''}
+            sunset={weather.daily[0]?.sunset || ''}
+          />
+
+          <HourlyForecast hourlyData={weather.hourly} unit={'celsius'} />
+        </>
       )}
     </div>
   );
