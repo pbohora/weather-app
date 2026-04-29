@@ -12,12 +12,16 @@ const Dialog = ({ children, onClose, 'aria-label': ariaLabel }: DialogProps) => 
   // Lock body scroll while open
   useEffect(() => {
     document.body.style.overflow = 'hidden';
-    return () => { document.body.style.overflow = ''; };
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, []);
 
   // Close on Escape key
   useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
   }, [onClose]);
@@ -26,19 +30,12 @@ const Dialog = ({ children, onClose, 'aria-label': ariaLabel }: DialogProps) => 
     <div
       className={styles.overlay}
       role="presentation"
-      onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
     >
-      <div
-        role="dialog"
-        aria-modal="true"
-        aria-label={ariaLabel}
-        className={styles.modal}
-      >
-        <button
-          className={styles.closeButton}
-          onClick={onClose}
-          aria-label="Close dialog"
-        >
+      <div role="dialog" aria-modal="true" aria-label={ariaLabel} className={styles.modal}>
+        <button className={styles.closeButton} onClick={onClose} aria-label="Close dialog">
           <X size={18} />
         </button>
         {children}

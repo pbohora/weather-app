@@ -129,11 +129,7 @@ describe('useScrolled', () => {
       const addEventListenerSpy = vi.spyOn(window, 'addEventListener');
       renderHook(() => useScrolled());
 
-      expect(addEventListenerSpy).toHaveBeenCalledWith(
-        'scroll',
-        expect.any(Function),
-        { passive: true },
-      );
+      expect(addEventListenerSpy).toHaveBeenCalledWith('scroll', expect.any(Function), { passive: true });
       addEventListenerSpy.mockRestore();
     });
   });

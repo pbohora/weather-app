@@ -1,4 +1,4 @@
-@use "../../../styles/mixins" as *;
+@use '../../../styles/mixins' as *;
 
 .layout {
   display: flex;
@@ -17,7 +17,7 @@
   gap: 3rem;
   box-sizing: border-box;
 
-  @include respond-to("md") {
+  @include respond-to('md') {
     padding: 4rem;
   }
 }

@@ -79,9 +79,7 @@ describe('TemperatureDisplay', () => {
 
     it('renders a long weather status description', () => {
       render(<TemperatureDisplay {...defaultProps} status="Thunderstorm with Heavy Hail" />);
-      expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
-        'Thunderstorm with Heavy Hail',
-      );
+      expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Thunderstorm with Heavy Hail');
     });
 
     it('renders a different secondary label', () => {

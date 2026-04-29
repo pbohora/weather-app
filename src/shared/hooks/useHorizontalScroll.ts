@@ -16,7 +16,7 @@ export const useHorizontalScroll = ({ scrollAmount = 400 }: UseHorizontalScrollO
         });
       }
     },
-    [scrollAmount]
+    [scrollAmount],
   );
 
   return { scrollContainerRef, scroll };

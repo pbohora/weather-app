@@ -14,16 +14,9 @@ interface SearchSuggestionsProps {
 
 const SuggestionItem = ({ loc, onSelect }: { loc: Location; onSelect: (l: Location) => void }) => (
   <li className={styles.item}>
-    <button
-      type="button"
-      className={styles.button}
-      onClick={() => onSelect(loc)}
-      data-testid={`suggestion-${loc.id}`}
-    >
+    <button type="button" className={styles.button} onClick={() => onSelect(loc)} data-testid={`suggestion-${loc.id}`}>
       <span className={styles.name}>{loc.name}</span>
-      <span className={styles.details}>
-        {[loc.admin1, loc.country].filter(Boolean).join(', ')}
-      </span>
+      <span className={styles.details}>{[loc.admin1, loc.country].filter(Boolean).join(', ')}</span>
     </button>
   </li>
 );
@@ -50,19 +43,13 @@ const SearchSuggestions = ({
           </li>
         ))}
 
-      {error && (
-        <li className={`${styles.item} ${styles.message} ${styles.error}`}>
-          {getErrorMessage(error)}
-        </li>
-      )}
+      {error && <li className={`${styles.item} ${styles.message} ${styles.error}`}>{getErrorMessage(error)}</li>}
 
       {!isLoading && !error && suggestions.length === 0 && !isHistory && (
         <li className={`${styles.item} ${styles.message}`}>No locations found</li>
       )}
 
-      {!isLoading && !error && suggestions.map((loc) => (
-        <SuggestionItem key={loc.id} loc={loc} onSelect={onSelect} />
-      ))}
+      {!isLoading && !error && suggestions.map((loc) => <SuggestionItem key={loc.id} loc={loc} onSelect={onSelect} />)}
     </ul>
   );
 };

@@ -33,11 +33,7 @@ const HourlyForecast = ({ hourlyData, unit }: HourlyForecastProps) => {
     <section className={styles.container}>
       <div className={styles.header}>
         <h3 className={styles.title}>Hourly Forecast</h3>
-        <ScrollButtons 
-          onScroll={scroll} 
-          leftLabel="Scroll left" 
-          rightLabel="Scroll right" 
-        />
+        <ScrollButtons onScroll={scroll} leftLabel="Scroll left" rightLabel="Scroll right" />
       </div>
 
       <div ref={scrollContainerRef} className={styles.hourlyList}>

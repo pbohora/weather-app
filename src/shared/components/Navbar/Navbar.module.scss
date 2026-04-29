@@ -1,4 +1,4 @@
-@use "../../../styles/mixins" as *;
+@use '../../../styles/mixins' as *;
 
 .navbar {
   width: 100%;
@@ -29,7 +29,7 @@
   gap: 1rem;
   transition: padding 0.3s ease;
 
-  @include respond-to("md") {
+  @include respond-to('md') {
     padding: 1.25rem 4rem;
     gap: 2rem;
   }
@@ -52,7 +52,7 @@
   letter-spacing: -0.01em;
   display: none;
 
-  @include respond-to("sm") {
+  @include respond-to('sm') {
     display: block;
   }
 }

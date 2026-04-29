@@ -99,6 +99,6 @@ export const mockLocation: Location = {
 
 export const mockLocations: Location[] = [
   { id: 1, name: 'Helsinki', country: 'Finland', latitude: 60.17, longitude: 24.94, admin1: 'Uusimaa' },
-  { id: 2, name: 'Espoo',    country: 'Finland', latitude: 60.25, longitude: 24.66, admin1: 'Uusimaa' },
-  { id: 3, name: 'Tampere',  country: 'Finland', latitude: 61.50, longitude: 23.76 },
+  { id: 2, name: 'Espoo', country: 'Finland', latitude: 60.25, longitude: 24.66, admin1: 'Uusimaa' },
+  { id: 3, name: 'Tampere', country: 'Finland', latitude: 61.5, longitude: 23.76 },
 ];

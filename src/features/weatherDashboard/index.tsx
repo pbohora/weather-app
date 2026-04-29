@@ -21,11 +21,7 @@ export const WeatherDashboard = () => {
   if (!selectedLocation) {
     if (geoError) {
       return (
-        <EmptyState
-          icon={<LocateOff size={80} />}
-          title="Location unavailable"
-          message={getErrorMessage(geoError)}
-        />
+        <EmptyState icon={<LocateOff size={80} />} title="Location unavailable" message={getErrorMessage(geoError)} />
       );
     }
 

@@ -1,5 +1,5 @@
-import { type ReactNode, Component, type ErrorInfo } from "react";
-import styles from "./ErrorBoundary.module.scss";
+import { type ReactNode, Component, type ErrorInfo } from 'react';
+import styles from './ErrorBoundary.module.scss';
 
 interface Props {
   children: ReactNode;
@@ -25,7 +25,7 @@ export class ErrorBoundary extends Component<Props, State> {
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     if (isDev) {
-      console.error("ErrorBoundary caught an error:", error, errorInfo);
+      console.error('ErrorBoundary caught an error:', error, errorInfo);
     }
   }
 
@@ -38,13 +38,8 @@ export class ErrorBoundary extends Component<Props, State> {
       return (
         <div role="alert" className={styles.container}>
           <h2>Something went wrong</h2>
-          {isDev && this.state.error && (
-            <p className={styles.message}>{this.state.error.message}</p>
-          )}
-          <button
-            className="btn btn-primary"
-            onClick={() => this.setState({ hasError: false, error: null })}
-          >
+          {isDev && this.state.error && <p className={styles.message}>{this.state.error.message}</p>}
+          <button className="btn btn-primary" onClick={() => this.setState({ hasError: false, error: null })}>
             Try again
           </button>
         </div>

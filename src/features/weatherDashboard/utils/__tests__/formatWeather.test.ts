@@ -1,11 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import {
-  getWmoDescription,
-  formatTemp,
-  formatWind,
-  formatDate,
-  formatTime,
-} from '../formatWeather';
+import { getWmoDescription, formatTemp, formatWind, formatDate, formatTime } from '../formatWeather';
 
 describe('getWmoDescription', () => {
   it('returns "Clear Sky" for code 0', () => {
