@@ -7,21 +7,33 @@ import { useWeatherQuery } from './hooks/useWeatherQuery';
 import { useWeatherStore } from './store/weatherStore';
 import styles from './WeatherDashboard.module.scss';
 import { useLocationStore } from '../location/store/locationStore';
+import { useGeolocation } from '../location/hooks/useGeolocation';
 import EmptyState from '../../shared/components/EmptyState';
-import { MapPin } from 'lucide-react';
+import { MapPin, LocateOff } from 'lucide-react';
 
 export const WeatherDashboard = () => {
   const { unit } = useWeatherStore();
   const { selectedLocation } = useLocationStore();
+  const { isPending: isGeoLoading, error: geoError } = useGeolocation();
   const { data: weather, isLoading, isError, refetch } = useWeatherQuery(selectedLocation, unit);
 
   if (!selectedLocation) {
+    if (geoError) {
+      return (
+        <EmptyState
+          icon={<LocateOff size={80} />}
+          title="Location unavailable"
+          message="We couldn't detect your location. Search for a city above to get started."
+        />
+      );
+    }
+
     return (
       <EmptyState
         icon={<MapPin size={80} />}
-        title={isLoading ? 'Detecting Location...' : 'Where to?'}
+        title={isGeoLoading ? 'Detecting your location...' : 'Where to?'}
         message={
-          isLoading
+          isGeoLoading
             ? 'Syncing with your local atmosphere for a moment.'
             : 'Pick a city to see the atmospheric magic. Instant weather updates for anywhere on Earth.'
         }
@@ -35,8 +47,8 @@ export const WeatherDashboard = () => {
     return (
       <ErrorState
         title="Connection Interrupted"
-        message="We couldn't reach the weather satellite. Check your connection and try again."
-        retryLabel="Retry Satellite Sync"
+        message="We couldn't reach the weather server. Please try again."
+        retryLabel="Retry"
         onRetry={refetch}
       />
     );
