@@ -50,10 +50,10 @@ describe('SearchSuggestions', () => {
       expect(onSelect).toHaveBeenCalledTimes(1);
     });
 
-    it('renders each suggestion as a button', () => {
+    it('renders each suggestion as an option', () => {
       render(<SearchSuggestions {...defaultProps} />);
-      const buttons = screen.getAllByRole('button');
-      expect(buttons).toHaveLength(3);
+      const options = screen.getAllByRole('option');
+      expect(options).toHaveLength(3);
     });
   });
 

@@ -31,7 +31,7 @@ describe('LocationSearch', () => {
     it('renders the search input', () => {
       mockSearch();
       renderWithQuery(<LocationSearch />);
-      expect(screen.getByRole('textbox', { name: /search location/i })).toBeInTheDocument();
+      expect(screen.getByRole('combobox', { name: /search location/i })).toBeInTheDocument();
     });
 
     it('renders the placeholder text', () => {
@@ -51,7 +51,7 @@ describe('LocationSearch', () => {
     it('does not show suggestions when query is 2 characters or fewer', () => {
       mockSearch();
       renderWithQuery(<LocationSearch />);
-      const input = screen.getByRole('textbox');
+      const input = screen.getByRole('combobox');
       fireEvent.focus(input);
       fireEvent.change(input, { target: { value: 'He' } });
       expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
@@ -60,7 +60,7 @@ describe('LocationSearch', () => {
     it('shows suggestions dropdown when query is more than 2 characters and focused', () => {
       mockSearch({ data: mockLocations });
       renderWithQuery(<LocationSearch />);
-      const input = screen.getByRole('textbox');
+      const input = screen.getByRole('combobox');
       fireEvent.focus(input);
       fireEvent.change(input, { target: { value: 'Hel' } });
       expect(screen.getByRole('listbox')).toBeInTheDocument();
@@ -69,7 +69,7 @@ describe('LocationSearch', () => {
     it('shows skeleton rows while loading', () => {
       mockSearch({ isLoading: true, data: undefined });
       renderWithQuery(<LocationSearch />);
-      const input = screen.getByRole('textbox');
+      const input = screen.getByRole('combobox');
       fireEvent.focus(input);
       fireEvent.change(input, { target: { value: 'Hel' } });
       expect(screen.getAllByRole('status').length).toBeGreaterThan(0);
@@ -78,7 +78,7 @@ describe('LocationSearch', () => {
     it('shows error message on fetch failure', () => {
       mockSearch({ isError: true, error: new Error('Failed to fetch locations'), data: undefined });
       renderWithQuery(<LocationSearch />);
-      const input = screen.getByRole('textbox');
+      const input = screen.getByRole('combobox');
       fireEvent.focus(input);
       fireEvent.change(input, { target: { value: 'Hel' } });
       expect(screen.getByText('Failed to fetch locations')).toBeInTheDocument();
@@ -87,7 +87,7 @@ describe('LocationSearch', () => {
     it('renders suggestion names when data is returned', () => {
       mockSearch({ data: mockLocations });
       renderWithQuery(<LocationSearch />);
-      const input = screen.getByRole('textbox');
+      const input = screen.getByRole('combobox');
       fireEvent.focus(input);
       fireEvent.change(input, { target: { value: 'Hel' } });
       expect(screen.getByText('Helsinki')).toBeInTheDocument();
@@ -99,7 +99,7 @@ describe('LocationSearch', () => {
     it('updates the store when a suggestion is selected', () => {
       mockSearch({ data: mockLocations });
       renderWithQuery(<LocationSearch />);
-      const input = screen.getByRole('textbox');
+      const input = screen.getByRole('combobox');
       fireEvent.focus(input);
       fireEvent.change(input, { target: { value: 'Hel' } });
       fireEvent.click(screen.getByTestId('suggestion-1'));
@@ -109,7 +109,7 @@ describe('LocationSearch', () => {
     it('clears the input after selecting a location', () => {
       mockSearch({ data: mockLocations });
       renderWithQuery(<LocationSearch />);
-      const input = screen.getByRole('textbox') as HTMLInputElement;
+      const input = screen.getByRole('combobox') as HTMLInputElement;
       fireEvent.focus(input);
       fireEvent.change(input, { target: { value: 'Hel' } });
       fireEvent.click(screen.getByTestId('suggestion-1'));
@@ -119,7 +119,7 @@ describe('LocationSearch', () => {
     it('adds the location to search history', () => {
       mockSearch({ data: mockLocations });
       renderWithQuery(<LocationSearch />);
-      const input = screen.getByRole('textbox');
+      const input = screen.getByRole('combobox');
       fireEvent.focus(input);
       fireEvent.change(input, { target: { value: 'Hel' } });
       fireEvent.click(screen.getByTestId('suggestion-1'));
@@ -130,7 +130,7 @@ describe('LocationSearch', () => {
     it('closes the suggestions after selecting', () => {
       mockSearch({ data: mockLocations });
       renderWithQuery(<LocationSearch />);
-      const input = screen.getByRole('textbox');
+      const input = screen.getByRole('combobox');
       fireEvent.focus(input);
       fireEvent.change(input, { target: { value: 'Hel' } });
       fireEvent.click(screen.getByTestId('suggestion-1'));
@@ -142,7 +142,7 @@ describe('LocationSearch', () => {
     it('closes suggestions when clicking outside the container', () => {
       mockSearch({ data: mockLocations });
       renderWithQuery(<LocationSearch />);
-      const input = screen.getByRole('textbox');
+      const input = screen.getByRole('combobox');
       fireEvent.focus(input);
       fireEvent.change(input, { target: { value: 'Hel' } });
       expect(screen.getByRole('listbox')).toBeInTheDocument();
@@ -159,7 +159,7 @@ describe('LocationSearch', () => {
       useLocationStore.setState({ selectedLocation: null, searchHistory: mockLocations });
       mockSearch();
       renderWithQuery(<LocationSearch />);
-      const input = screen.getByRole('textbox');
+      const input = screen.getByRole('combobox');
       fireEvent.focus(input);
       // query is empty (≤ 2 chars) — should show history
       expect(screen.getByRole('listbox')).toBeInTheDocument();
@@ -169,7 +169,7 @@ describe('LocationSearch', () => {
     it('does not show history when there is no history', () => {
       mockSearch();
       renderWithQuery(<LocationSearch />);
-      const input = screen.getByRole('textbox');
+      const input = screen.getByRole('combobox');
       fireEvent.focus(input);
       expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
     });
