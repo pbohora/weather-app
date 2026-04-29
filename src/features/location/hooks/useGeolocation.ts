@@ -22,6 +22,7 @@ export function useGeolocation() {
       return location;
     },
     enabled: !selectedLocation && 'geolocation' in navigator,
+    staleTime: Infinity, // position is captured once per session
     retry: false,
   });
 }
