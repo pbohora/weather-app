@@ -6,7 +6,7 @@ A production-quality weather forecast application built with React 19 and TypeSc
 
 # Demo
 
-<a href="https://project-py1jn.vercel.app/" target="_blank" rel="noopener noreferrer">Demo available here</a>
+[Demo available here](https://project-py1jn.vercel.app/)
 
 ## Features
 
@@ -44,9 +44,9 @@ A production-quality weather forecast application built with React 19 and TypeSc
 
 | API                                                                                 | Purpose                                     | Env var                  |
 | ----------------------------------------------------------------------------------- | ------------------------------------------- | ------------------------ |
-| <a href="https://open-meteo.com/en/docs" target="_blank" rel="noopener noreferrer">Open-Meteo Forecast</a>                               | Current weather + hourly + daily forecast   | `VITE_WEATHER_API_URL`   |
-| <a href="https://open-meteo.com/en/docs/geocoding-api" target="_blank" rel="noopener noreferrer">Open-Meteo Geocoding</a>                | City search autocomplete                    | `VITE_GEOCODING_API_URL` |
-| <a href="https://nominatim.org/release-docs/latest/api/Reverse/" target="_blank" rel="noopener noreferrer">Nominatim (OpenStreetMap)</a> | Reverse geocoding (coordinates → city name) | `VITE_NOMINATIM_API_URL` |
+| [Open-Meteo Forecast](https://open-meteo.com/en/docs)                               | Current weather + hourly + daily forecast   | `VITE_WEATHER_API_URL`   |
+| [Open-Meteo Geocoding](https://open-meteo.com/en/docs/geocoding-api)                | City search autocomplete                    | `VITE_GEOCODING_API_URL` |
+| [Nominatim (OpenStreetMap)](https://nominatim.org/release-docs/latest/api/Reverse/) | Reverse geocoding (coordinates → city name) | `VITE_NOMINATIM_API_URL` |
 
 ---
 
@@ -97,7 +97,7 @@ cp .env.example .env
 npm run dev
 ```
 
-Open <a href="http://localhost:5173" target="_blank" rel="noopener noreferrer">http://localhost:5173</a> in your browser.
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ---
 
