@@ -25,7 +25,7 @@ interface TemperatureChartProps {
 const TemperatureChart = ({ data, unit }: TemperatureChartProps) => (
   <div className={styles.container}>
     <div className={styles.wrapper}>
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width="100%" height="100%" initialDimension={{ width: 320, height: 200 }}>
         <AreaChart data={data} margin={{ top: 20, right: 10, left: 0, bottom: 20 }}>
           <defs>
             <linearGradient id="maxGradient" x1="0" y1="0" x2="0" y2="1">

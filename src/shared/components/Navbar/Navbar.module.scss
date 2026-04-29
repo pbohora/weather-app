@@ -14,7 +14,7 @@
 .scrolled {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid var(--glass-border-soft);
-  background: rgba(7, 89, 133, 0.85);
+  background: var(--color-bg);
   backdrop-filter: blur(20px);
 }
 

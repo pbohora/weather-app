@@ -4,6 +4,10 @@ A production-quality weather forecast application built with React 19 and TypeSc
 
 ---
 
+# Demo
+
+[Demo available here](https://open-meteo.com/en/docs)
+
 ## What it does
 
 - Detects the user's location automatically via the browser Geolocation API and reverse-geocodes it to a city name
