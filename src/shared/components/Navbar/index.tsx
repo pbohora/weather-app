@@ -3,6 +3,7 @@ import styles from './Navbar.module.scss';
 import { clsx } from 'clsx';
 import { useScrolled } from '../../hooks/useScrolled';
 import UnitToggle from '../../../features/weatherDashboard/components/UnitToggle';
+import { LocationSearch } from '../../../features/location/components/LocationSearch';
 
 export const Navbar = () => {
   const isScrolled = useScrolled();
@@ -17,6 +18,8 @@ export const Navbar = () => {
           </div>
         </div>
         <UnitToggle />
+
+        <LocationSearch />
       </div>
     </nav>
   );

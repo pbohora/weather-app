@@ -5,15 +5,8 @@ import { formatTemp, formatWind, getWmoDescription, formatTime } from '../../uti
 import styles from './CurrentWeather.module.scss';
 import TemperatureDisplay from '../TemperatureDisplay';
 import WeatherStats from '../WeatherStats';
-import type { Coordinates, TemperatureUnit } from '../../api/weatherApi.types';
-
-export interface Location extends Coordinates {
-  id: number | string;
-  name: string;
-  country: string;
-  admin1?: string;
-  admin2?: string;
-}
+import type { TemperatureUnit } from '../../api/weatherApi.types';
+import type { Location } from '../../../location/types/location.types';
 
 interface CurrentWeatherProps {
   readonly currentWeather: CurrentWeatherType;

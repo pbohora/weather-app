@@ -6,15 +6,28 @@ import WeatherSkeleton from './components/WeatherSkeleton';
 import { useWeatherQuery } from './hooks/useWeatherQuery';
 import { useWeatherStore } from './store/weatherStore';
 import styles from './WeatherDashboard.module.scss';
+import { useLocationStore } from '../location/store/locationStore';
+import EmptyState from '../../shared/components/EmptyState';
+import { MapPin } from 'lucide-react';
 
 export const WeatherDashboard = () => {
   const { unit } = useWeatherStore();
-  const {
-    data: weather,
-    isLoading,
-    isError,
-    refetch,
-  } = useWeatherQuery({ latitude: 60.154512994425566, longitude: 24.74072006879877, id: 1234 }, unit);
+  const { selectedLocation } = useLocationStore();
+  const { data: weather, isLoading, isError, refetch } = useWeatherQuery(selectedLocation, unit);
+
+  if (!selectedLocation) {
+    return (
+      <EmptyState
+        icon={<MapPin size={80} />}
+        title={isLoading ? 'Detecting Location...' : 'Where to?'}
+        message={
+          isLoading
+            ? 'Syncing with your local atmosphere for a moment.'
+            : 'Pick a city to see the atmospheric magic. Instant weather updates for anywhere on Earth.'
+        }
+      />
+    );
+  }
 
   if (isLoading) return <WeatherSkeleton />;
 
@@ -31,26 +44,16 @@ export const WeatherDashboard = () => {
 
   return (
     <div className={styles.container}>
-      {weather && (
-        <>
-          <CurrentWeather
-            currentWeather={weather?.current}
-            location={{
-              id: 1234,
-              name: 'Helsinki',
-              country: 'Finland',
-              latitude: 60.154512994425566,
-              longitude: 24.74072006879877,
-            }}
-            unit={unit}
-            sunrise={weather.daily[0]?.sunrise || ''}
-            sunset={weather.daily[0]?.sunset || ''}
-          />
+      <CurrentWeather
+        currentWeather={weather?.current}
+        location={selectedLocation}
+        unit={unit}
+        sunrise={weather.daily[0]?.sunrise || ''}
+        sunset={weather.daily[0]?.sunset || ''}
+      />
 
-          <HourlyForecast hourlyData={weather.hourly} unit={unit} />
-          <DailyForecast dailyForecast={weather.daily} unit={unit} />
-        </>
-      )}
+      <HourlyForecast hourlyData={weather.hourly} unit={unit} />
+      <DailyForecast dailyForecast={weather.daily} unit={unit} />
     </div>
   );
 };

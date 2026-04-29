@@ -1,6 +1,6 @@
 import type { WeatherApiResponse } from '../features/weatherDashboard/api/weatherApi.types';
 import type { CurrentWeather, WeatherDay } from '../features/weatherDashboard/types/weather.types';
-import type { Location } from '../features/weatherDashboard/components/CurrentWeather';
+import type { Location } from '../features/location/types/location.types';
 
 export function makeRawWeather(overrides: Partial<WeatherApiResponse> = {}): WeatherApiResponse {
   return {
@@ -85,8 +85,8 @@ export const mockDailyForecast: WeatherDay[] = [
 
 export const mockStatsData = [
   { label: 'Wind Speed', value: '15 km/h' },
-  { label: 'Humidity',   value: '65%' },
-  { label: 'UV Index',   value: 3 },
+  { label: 'Humidity', value: '65%' },
+  { label: 'UV Index', value: 3 },
 ] as const;
 
 export const mockLocation: Location = {
@@ -96,3 +96,9 @@ export const mockLocation: Location = {
   latitude: 60.17,
   longitude: 24.94,
 };
+
+export const mockLocations: Location[] = [
+  { id: 1, name: 'Helsinki', country: 'Finland', latitude: 60.17, longitude: 24.94, admin1: 'Uusimaa' },
+  { id: 2, name: 'Espoo',    country: 'Finland', latitude: 60.25, longitude: 24.66, admin1: 'Uusimaa' },
+  { id: 3, name: 'Tampere',  country: 'Finland', latitude: 61.50, longitude: 23.76 },
+];

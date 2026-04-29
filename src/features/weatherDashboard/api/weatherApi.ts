@@ -1,7 +1,7 @@
 import { apiClient } from '../../../shared/api/axiosInstance';
 import { type WeatherApiResponse, weatherApiResponseSchema, type WeatherRequestParams } from './weatherApi.types';
 
-const BASE_URL = import.meta.env.VITE_API_URL || 'https://api.open-meteo.com/v1/forecast';
+const BASE_URL = import.meta.env.VITE_WEATHER_API_URL || 'https://api.open-meteo.com/v1/forecast';
 
 const CURRENT_FIELDS = [
   'temperature_2m',
