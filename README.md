@@ -6,7 +6,7 @@ A production-quality weather forecast application built with React 19 and TypeSc
 
 # Demo
 
-[Demo available here](https://open-meteo.com/en/docs)
+[Demo available here](https://project-py1jn.vercel.app/)
 
 ## What it does
 
