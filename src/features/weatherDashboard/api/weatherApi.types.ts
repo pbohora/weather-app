@@ -21,6 +21,7 @@ export const weatherApiResponseSchema = z.object({
   hourly: z.object({
     time: z.array(z.string()),
     temperature_2m: z.array(z.number()),
+    apparent_temperature: z.array(z.number()),
     precipitation_probability: z.array(z.number()),
     weather_code: z.array(z.number()),
   }),

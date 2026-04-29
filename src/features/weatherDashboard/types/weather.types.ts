@@ -28,6 +28,7 @@ export interface WeatherDay {
 export interface WeatherHour {
   time: string;
   temp: number;
+  apparentTemp: number;
   precipitationProb: number;
   weatherCode: number;
   icon: WeatherIcon;

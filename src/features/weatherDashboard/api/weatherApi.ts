@@ -16,7 +16,7 @@ const CURRENT_FIELDS = [
   'uv_index',
 ].join(',');
 
-const HOURLY_FIELDS = ['temperature_2m', 'precipitation_probability', 'weather_code'].join(',');
+const HOURLY_FIELDS = ['temperature_2m', 'apparent_temperature', 'precipitation_probability', 'weather_code'].join(',');
 
 const DAILY_FIELDS = [
   'weather_code',

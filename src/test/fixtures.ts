@@ -23,6 +23,7 @@ export function makeRawWeather(overrides: Partial<WeatherApiResponse> = {}): Wea
     hourly: {
       time: ['2024-06-15T00:00:00', '2024-06-15T01:00:00'],
       temperature_2m: [15, 14],
+      apparent_temperature: [13, 12],
       precipitation_probability: [10, 20],
       weather_code: [0, 1],
     },

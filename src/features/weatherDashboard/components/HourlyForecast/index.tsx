@@ -41,13 +41,18 @@ const HourlyForecast = ({ hourlyData, unit }: HourlyForecastProps) => {
           <div key={`${hour.time}-${index}`} className={styles.hourlyCard}>
             <span className={styles.time}>{formatTime(hour.time)}</span>
             <WeatherIcon name={hour.icon} className={styles.icon} />
-            <span className={styles.temp}>{formatTemp(hour.temp, unit)}</span>
-            {hour.precipitationProb > 0 && (
-              <div className={styles.precip}>
-                <Droplets size={12} />
-                <span>{hour.precipitationProb}%</span>
+            <div className={styles.tempGroup}>
+              <span className={styles.temp}>{formatTemp(hour.temp, unit)}</span>
+              <div className={styles.meta}>
+                <span className={styles.feelsLike}>Feels {formatTemp(hour.apparentTemp, unit)}</span>
+                {hour.precipitationProb > 0 && (
+                  <div className={styles.precip}>
+                    <Droplets size={10} />
+                    <span>{hour.precipitationProb}%</span>
+                  </div>
+                )}
               </div>
-            )}
+            </div>
           </div>
         ))}
       </div>

@@ -59,6 +59,7 @@ export function transformWeather(raw: WeatherApiResponse): WeatherDomain {
     return {
       time: t,
       temp: raw.hourly.temperature_2m[index] ?? 0,
+      apparentTemp: raw.hourly.apparent_temperature[index] ?? 0,
       precipitationProb: raw.hourly.precipitation_probability[index] ?? 0,
       weatherCode: raw.hourly.weather_code[index] ?? 0,
       icon: mapWmoToIcon(raw.hourly.weather_code[index] ?? 0, hourIsDay),

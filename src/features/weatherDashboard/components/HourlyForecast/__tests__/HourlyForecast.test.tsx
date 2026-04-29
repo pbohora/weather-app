@@ -18,6 +18,7 @@ function makeHour(hour: number, overrides: Partial<WeatherHour> = {}): WeatherHo
   return {
     time,
     temp: 20 + hour,
+    apparentTemp: 18 + hour,
     precipitationProb: 0,
     weatherCode: 0,
     icon: 'sun',
@@ -79,6 +80,12 @@ describe('HourlyForecast', () => {
     it('renders temperatures in fahrenheit', () => {
       render(<HourlyForecast {...defaultProps} unit="fahrenheit" />);
       expect(screen.getByText('30°F')).toBeInTheDocument();
+    });
+
+    it('renders feels-like temperature for each card', () => {
+      render(<HourlyForecast {...defaultProps} />);
+      // hour 10 → apparentTemp 28 (18 + 10)
+      expect(screen.getByText('Feels 28°C')).toBeInTheDocument();
     });
   });
 
