@@ -8,7 +8,7 @@ A production-quality weather forecast application built with React 19 and TypeSc
 
 [Demo available here](https://project-py1jn.vercel.app/)
 
-## What it does
+## Features
 
 - Detects the user's location automatically via the browser Geolocation API and reverse-geocodes it to a city name
 - Lets the user search any city worldwide with debounced autocomplete and recent search history
@@ -42,8 +42,6 @@ A production-quality weather forecast application built with React 19 and TypeSc
 
 ## APIs used
 
-All APIs are **free with no API key required**.
-
 | API                                                                                 | Purpose                                     | Env var                  |
 | ----------------------------------------------------------------------------------- | ------------------------------------------- | ------------------------ |
 | [Open-Meteo Forecast](https://open-meteo.com/en/docs)                               | Current weather + hourly + daily forecast   | `VITE_WEATHER_API_URL`   |
@@ -60,16 +58,16 @@ Copy `.env.example` to `.env`:
 cp .env.example .env
 ```
 
-All variables have working defaults built in — the app runs without a `.env` file. Override them only if you need to proxy through a custom backend.
+All variables have working defaults built in the app runs without a `.env` file. Override them only if you need to proxy through a custom backend.
 
 ```env
-# Open-Meteo Weather API (free, no key required)
+# Open-Meteo Weather API
 VITE_WEATHER_API_URL=https://api.open-meteo.com/v1/forecast
 
-# Open-Meteo Geocoding API (free, no key required)
+# Open-Meteo Geocoding API
 VITE_GEOCODING_API_URL=https://geocoding-api.open-meteo.com/v1/search
 
-# Nominatim Reverse Geocoding API by OpenStreetMap (free, no key required)
+# Nominatim Reverse Geocoding API by OpenStreetMap
 VITE_NOMINATIM_API_URL=https://nominatim.openstreetmap.org/reverse
 ```
 
@@ -138,7 +136,7 @@ src/
 │   │   │   └── nominatimApi.ts          # Nominatim reverse geocoding
 │   │   ├── components/
 │   │   │   ├── LocationSearch/          # Search input with debounce
-│   │   │   └── SearchSuggestions/       # Dropdown with skeleton loading
+│   │   │   └── SearchSuggestions/       # Dropdown with suggested locations and skeleton loading
 │   │   ├── hooks/
 │   │   │   ├── useGeolocation.ts        # Browser geolocation → React Query
 │   │   │   └── useLocationSearch.ts     # Debounced city search query
