@@ -13,11 +13,16 @@ interface SearchSuggestionsProps {
 }
 
 const SuggestionItem = ({ loc, onSelect }: { loc: Location; onSelect: (l: Location) => void }) => (
-  <li className={styles.item}>
-    <button type="button" className={styles.button} onClick={() => onSelect(loc)} data-testid={`suggestion-${loc.id}`}>
-      <span className={styles.name}>{loc.name}</span>
-      <span className={styles.details}>{[loc.admin1, loc.country].filter(Boolean).join(', ')}</span>
-    </button>
+  <li
+    id={`location-option-${loc.id}`}
+    role="option"
+    aria-selected={false}
+    className={styles.item}
+    onClick={() => onSelect(loc)}
+    data-testid={`suggestion-${loc.id}`}
+  >
+    <span className={styles.name}>{loc.name}</span>
+    <span className={styles.details}>{[loc.admin1, loc.country].filter(Boolean).join(', ')}</span>
   </li>
 );
 
@@ -32,7 +37,7 @@ const SearchSuggestions = ({
   if (!isOpen) return null;
 
   return (
-    <ul className={styles.container} role="listbox">
+    <ul id="location-listbox" className={styles.container} role="listbox" aria-label="Location suggestions">
       {isLoading &&
         Array.from({ length: 3 }).map((_, i) => (
           <li key={i} className={styles.item}>

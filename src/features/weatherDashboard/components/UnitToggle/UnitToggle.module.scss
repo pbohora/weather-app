@@ -18,7 +18,7 @@
   bottom: 0.25rem;
   left: 0.25rem;
   width: calc(50% - 0.25rem);
-  background: var(--glass-bg-hover);
+  background: rgba(255, 255, 255, 0.25);
   border-radius: calc(var(--radius-xl) - 0.125rem);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -37,7 +37,7 @@
   @include flex-center;
   font-size: var(--text-sm);
   font-weight: var(--fw-bold);
-  color: var(--glass-icon);
+  color: var(--glass-muted-text);
   background: transparent;
   border: none;
   transition: color 0.3s ease;

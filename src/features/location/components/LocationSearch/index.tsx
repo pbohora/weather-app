@@ -33,6 +33,7 @@ export const LocationSearch = () => {
 
   const showSuggestions = isFocused && query.length > 2;
   const showHistory = isFocused && query.length <= 2 && searchHistory.length > 0;
+  const isOpen = showSuggestions || showHistory;
 
   return (
     <div className={styles.container} ref={containerRef}>
@@ -40,19 +41,23 @@ export const LocationSearch = () => {
         <Search className={styles.icon} size={20} />
         <input
           type="text"
+          role="combobox"
           className={styles.input}
           placeholder="Search for a city..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => setIsFocused(true)}
           aria-label="Search location"
-          aria-expanded={showSuggestions}
+          aria-expanded={isOpen}
+          aria-autocomplete="list"
+          aria-controls="location-listbox"
+          aria-haspopup="listbox"
         />
       </div>
 
       <SearchSuggestions
-        isOpen={showSuggestions || showHistory}
-        suggestions={showSuggestions ? suggestions || [] : searchHistory}
+        isOpen={isOpen}
+        suggestions={showSuggestions ? (suggestions ?? []) : searchHistory}
         isLoading={showSuggestions ? isLoading : false}
         error={showSuggestions ? (error as Error | null) : null}
         onSelect={handleSelect}
