@@ -23,11 +23,11 @@ export function getErrorMessage(error: unknown): string {
   if (typeof GeolocationPositionError !== 'undefined' && error instanceof GeolocationPositionError) {
     switch (error.code) {
       case GeolocationPositionError.PERMISSION_DENIED:
-        return 'Location access was denied. Search for a city instead.';
+        return 'Location access was denied. Search for a city instead using the search bar above.';
       case GeolocationPositionError.POSITION_UNAVAILABLE:
-        return 'Your location could not be determined.';
+        return 'Your location could not be determined. Search for a city instead using the search bar above';
       case GeolocationPositionError.TIMEOUT:
-        return 'Location request timed out. Search for a city instead.';
+        return 'Location request timed out. Search for a city instead using the search bar above.';
     }
   }
 
