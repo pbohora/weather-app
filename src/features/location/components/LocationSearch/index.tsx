@@ -11,7 +11,7 @@ export const LocationSearch = () => {
   const [query, setQuery] = useState('');
   const [isFocused, setIsFocused] = useState(false);
   const debouncedQuery = useDebounce(query, 500);
-  const { data: suggestions, isLoading, isError } = useLocationSearch(debouncedQuery);
+  const { data: suggestions, isLoading, error } = useLocationSearch(debouncedQuery);
   const { setLocation, searchHistory } = useLocationStore();
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -54,7 +54,7 @@ export const LocationSearch = () => {
         isOpen={showSuggestions || showHistory}
         suggestions={showSuggestions ? suggestions || [] : searchHistory}
         isLoading={showSuggestions ? isLoading : false}
-        isError={showSuggestions ? isError : false}
+        error={showSuggestions ? (error as Error | null) : null}
         onSelect={handleSelect}
         isHistory={showHistory}
       />

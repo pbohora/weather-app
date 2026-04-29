@@ -1,11 +1,12 @@
 import { type Location } from '../../types/location.types';
 import Skeleton from '../../../../shared/components/Skeleton';
+import { getErrorMessage } from '../../../../shared/utils/errorMessage';
 import styles from './SearchSuggestions.module.scss';
 
 interface SearchSuggestionsProps {
   readonly suggestions: Location[];
   readonly isLoading: boolean;
-  readonly isError: boolean;
+  readonly error: Error | null;
   readonly onSelect: (location: Location) => void;
   readonly isOpen: boolean;
   readonly isHistory?: boolean;
@@ -30,7 +31,7 @@ const SuggestionItem = ({ loc, onSelect }: { loc: Location; onSelect: (l: Locati
 const SearchSuggestions = ({
   suggestions,
   isLoading,
-  isError,
+  error,
   onSelect,
   isOpen,
   isHistory = false,
@@ -49,17 +50,17 @@ const SearchSuggestions = ({
           </li>
         ))}
 
-      {isError && (
+      {error && (
         <li className={`${styles.item} ${styles.message} ${styles.error}`}>
-          Failed to fetch locations
+          {getErrorMessage(error)}
         </li>
       )}
 
-      {!isLoading && !isError && suggestions.length === 0 && !isHistory && (
+      {!isLoading && !error && suggestions.length === 0 && !isHistory && (
         <li className={`${styles.item} ${styles.message}`}>No locations found</li>
       )}
 
-      {!isLoading && !isError && suggestions.map((loc) => (
+      {!isLoading && !error && suggestions.map((loc) => (
         <SuggestionItem key={loc.id} loc={loc} onSelect={onSelect} />
       ))}
     </ul>

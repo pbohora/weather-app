@@ -215,11 +215,11 @@ Every API call goes through React Query (`useWeatherQuery`, `useLocationSearch`,
 
 Each query has a stale time tuned to how often its data actually changes:
 
-| Query | `staleTime` | Reason |
-|---|---|---|
-| `useWeatherQuery` | 30 minutes | Weather changes, but not every minute |
-| `useLocationSearch` | `Infinity` | City coordinates never change |
-| `useGeolocation` | `Infinity` | Position is captured once per session |
+| Query               | `staleTime` | Reason                                |
+| ------------------- | ----------- | ------------------------------------- |
+| `useWeatherQuery`   | 30 minutes  | Weather changes, but not every minute |
+| `useLocationSearch` | `Infinity`  | City coordinates never change         |
+| `useGeolocation`    | `Infinity`  | Position is captured once per session |
 
 The `gcTime` (garbage collection) is 30 minutes for all queries — unused cache entries are evicted from memory after that window.
 
@@ -253,8 +253,5 @@ All modals use a single `Dialog` component that owns the overlay, backdrop blur,
 
 - **E2E tests** — Vitest covers unit and integration. Playwright or Cypress tests for full user flows (search → select → view forecast) are missing.
 - **PWA / offline support** — A service worker could cache the last-fetched forecast so the app works on poor connections.
-- **More granular error boundaries** — Currently a single boundary wraps the main content. Per-section boundaries (hourly, daily) would let partial failures degrade gracefully rather than replacing the whole page.
 - **Accessibility audit** — Keyboard navigation and screen reader testing beyond ARIA attributes hasn't been done systematically.
-- **Nominatim rate limiting** — Nominatim's usage policy requires a max 1 request/second and a valid `User-Agent` header. The current implementation doesn't enforce either.
-- **Hourly forecast range** — The hourly list is capped at 24 hours from now. Extending to 7 days of hourly data with virtual scroll would require a library like `@tanstack/react-virtual`.
 - **Hourly forecast range** — The hourly list is capped at 24 hours from now. Extending to 7 days of hourly data with virtual scroll would require a library like `@tanstack/react-virtual`.

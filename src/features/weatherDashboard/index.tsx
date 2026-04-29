@@ -10,12 +10,13 @@ import { useLocationStore } from '../location/store/locationStore';
 import { useGeolocation } from '../location/hooks/useGeolocation';
 import EmptyState from '../../shared/components/EmptyState';
 import { MapPin, LocateOff } from 'lucide-react';
+import { getErrorMessage } from '../../shared/utils/errorMessage';
 
 export const WeatherDashboard = () => {
   const { unit } = useWeatherStore();
   const { selectedLocation } = useLocationStore();
   const { isPending: isGeoLoading, error: geoError } = useGeolocation();
-  const { data: weather, isLoading, isError, refetch } = useWeatherQuery(selectedLocation, unit);
+  const { data: weather, isLoading, isError, error, refetch } = useWeatherQuery(selectedLocation, unit);
 
   if (!selectedLocation) {
     if (geoError) {
@@ -23,7 +24,7 @@ export const WeatherDashboard = () => {
         <EmptyState
           icon={<LocateOff size={80} />}
           title="Location unavailable"
-          message="We couldn't detect your location. Search for a city above to get started."
+          message={getErrorMessage(geoError)}
         />
       );
     }
@@ -47,7 +48,7 @@ export const WeatherDashboard = () => {
     return (
       <ErrorState
         title="Connection Interrupted"
-        message="We couldn't reach the weather server. Please try again."
+        message={getErrorMessage(error)}
         retryLabel="Retry"
         onRetry={refetch}
       />
