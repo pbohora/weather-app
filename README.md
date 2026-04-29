@@ -244,19 +244,11 @@ All API responses are parsed with Zod schemas before the data reaches the rest o
 
 Component styles are scoped via SCSS Modules. Shared values (colors, typography scale, glass surface colors) live as CSS custom properties in `_variables.scss`. Repeated multi-property patterns live as SCSS mixins in `_mixins.scss`.
 
-**Why:** CSS custom properties are runtime-overridable and cascade naturally — useful for future theming. SCSS variables are compile-time only. Using both gives the best of both worlds: tokens in `_variables.scss` can be overridden at runtime (dark mode, theming), while mixins like `glass-card`, `text-label`, and `flex-center` keep component SCSS declarative and DRY.
-
-### Shared Dialog component
-
-All modals use a single `Dialog` component that owns the overlay, backdrop blur, close button, Escape key handling, click-outside-to-close, scroll lock, and ARIA attributes.
-
-**Why:** Without a shared shell, every modal re-implements the same accessibility and UX patterns inconsistently. `ForecastDetailModal` uses `Dialog` and only defines its content — the shell behaviour is guaranteed correct and consistent across the whole app.
-
 ---
 
 ## Areas for improvement
 
 - **E2E tests** — Vitest covers unit and integration. Playwright or Cypress tests for full user flows (search → select → view forecast) are missing.
-- **PWA / offline support** — A service worker could cache the last-fetched forecast so the app works on poor connections.
+  **API level tests** API level testing is missing. MSW could be used to mock the API responses.
 - **Accessibility audit** — Keyboard navigation and screen reader testing beyond ARIA attributes hasn't been done systematically.
 - **Hourly forecast range** — The hourly list is capped at 24 hours from now. Extending to 7 days of hourly data with virtual scroll would require a library like `@tanstack/react-virtual`.
