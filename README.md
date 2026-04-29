@@ -11,6 +11,7 @@ A production-quality weather forecast application built with React 19 and TypeSc
 - Displays current weather: temperature, feels-like, wind, humidity, UV index, precipitation, visibility
 - Shows an hourly forecast for the next 24 hours with precipitation probability
 - Shows a 7-day daily forecast with an interactive temperature area chart
+- Click on any day card to open a detailed breakdown with sunrise/sunset, min/max temps, and weather stats for that specific day
 - Supports Celsius / Fahrenheit toggle, persisted across sessions
 - Handles loading, error, and empty states throughout with skeleton screens
 

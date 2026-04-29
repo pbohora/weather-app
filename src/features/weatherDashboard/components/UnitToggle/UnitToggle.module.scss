@@ -3,6 +3,7 @@
 .container {
   position: relative;
   display: flex;
+  flex-shrink: 0;
   background: var(--glass-bg-subtle);
   backdrop-filter: blur(10px);
   padding: 0.25rem;
@@ -32,6 +33,7 @@
   position: relative;
   width: 2.75rem;
   height: 2.25rem;
+  flex-shrink: 0;
   @include flex-center;
   font-size: var(--text-sm);
   font-weight: var(--fw-bold);

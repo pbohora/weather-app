@@ -5,6 +5,7 @@
   flex-direction: column;
   gap: 1.5rem;
   flex: 1;
+  container-type: inline-size;
 }
 
 .tempBadge {
@@ -18,10 +19,7 @@
   @include text-hero-temp;
   color: white;
   line-height: 0.85;
-
-  @include respond-to('sm') {
-    font-size: var(--text-hero-lg);
-  }
+  font-size: clamp(var(--text-hero-sm), 28cqw, var(--text-hero-lg));
 }
 
 .secondaryInfo {
@@ -48,10 +46,7 @@
   letter-spacing: -0.04em;
   color: white;
   max-width: 600px;
-
-  @include respond-to('sm') {
-    font-size: var(--text-6xl);
-  }
+  font-size: clamp(var(--text-4xl), 10cqw, var(--text-6xl));
 }
 
 // Compact variant for dialogs
