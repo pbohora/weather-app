@@ -81,7 +81,7 @@ VITE_NOMINATIM_API_URL=https://nominatim.openstreetmap.org/reverse
 
 ```bash
 # 1. Clone the repo
-git clone <repo-url>
+git clone https://github.com/pbohora/weather-app.git
 cd weather-app
 
 # 2. Install dependencies
@@ -180,10 +180,12 @@ src/
 │   │   ├── NotFound/             # 404 page
 │   │   ├── ScrollButtons/        # Left/right scroll nav buttons
 │   │   └── Skeleton/             # Shimmer loading block
-│   └── hooks/
-│       ├── useDebounce.ts        # Generic debounce hook
-│       ├── useHorizontalScroll.ts# Scroll container ref + scroll function
-│       └── useScrolled.ts        # Tracks window scroll past a threshold
+│   ├── hooks/
+│   │   ├── useDebounce.ts        # Generic debounce hook
+│   │   ├── useHorizontalScroll.ts# Scroll container ref + scroll function
+│   │   └── useScrolled.ts        # Tracks window scroll past a threshold
+│   └── utils/
+│       └── errorMessage.ts       # Standardized error message formatter
 │
 ├── styles/                       # Global design system
 │   ├── _variables.scss           # CSS custom properties: colors, type scale, glass tokens

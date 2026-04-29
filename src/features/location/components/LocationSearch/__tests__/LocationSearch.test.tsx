@@ -76,7 +76,7 @@ describe('LocationSearch', () => {
     });
 
     it('shows error message on fetch failure', () => {
-      mockSearch({ isError: true, data: undefined });
+      mockSearch({ isError: true, error: new Error('Failed to fetch locations'), data: undefined });
       renderWithQuery(<LocationSearch />);
       const input = screen.getByRole('textbox');
       fireEvent.focus(input);

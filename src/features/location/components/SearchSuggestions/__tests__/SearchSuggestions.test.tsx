@@ -6,7 +6,7 @@ import { mockLocations } from '../../../../../test/fixtures';
 const defaultProps = {
   suggestions: mockLocations,
   isLoading: false,
-  isError: false,
+  error: null,
   onSelect: vi.fn(),
   isOpen: true,
 };
@@ -14,7 +14,7 @@ const defaultProps = {
 describe('SearchSuggestions', () => {
   describe('visibility', () => {
     it('renders nothing when isOpen is false', () => {
-      const { container } = render(<SearchSuggestions {...defaultProps} isOpen={false} />);
+      const { container } = render(<SearchSuggestions {...defaultProps} isOpen={false} error={null} />);
       expect(container.firstChild).toBeNull();
     });
 
@@ -78,12 +78,12 @@ describe('SearchSuggestions', () => {
 
   describe('error state', () => {
     it('renders error message when isError is true', () => {
-      render(<SearchSuggestions {...defaultProps} isError={true} suggestions={[]} />);
+      render(<SearchSuggestions {...defaultProps} error={new Error('Failed to fetch locations')} suggestions={[]} />);
       expect(screen.getByText('Failed to fetch locations')).toBeInTheDocument();
     });
 
     it('does not render suggestions on error', () => {
-      render(<SearchSuggestions {...defaultProps} isError={true} />);
+      render(<SearchSuggestions {...defaultProps} error={new Error('Failed to fetch locations')} />);
       expect(screen.queryByText('Helsinki')).not.toBeInTheDocument();
     });
   });
