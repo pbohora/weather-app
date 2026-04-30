@@ -1,8 +1,10 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { Suspense } from 'react';
+import { Suspense, lazy } from 'react';
 import { Layout } from '../shared/components/Layout';
-import WeatherDashboard from '../features/weatherDashboard';
 import NotFound from '../shared/components/NotFound';
+import WeatherSkeleton from '../features/weatherDashboard/components/WeatherSkeleton';
+
+const WeatherDashboard = lazy(() => import('../features/weatherDashboard'));
 
 export const router = createBrowserRouter([
   {
@@ -11,7 +13,7 @@ export const router = createBrowserRouter([
       {
         path: '/',
         element: (
-          <Suspense fallback={null}>
+          <Suspense fallback={<WeatherSkeleton />}>
             <WeatherDashboard />
           </Suspense>
         ),
