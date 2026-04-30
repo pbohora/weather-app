@@ -249,6 +249,7 @@ Component styles are scoped via SCSS Modules. Shared values (colors, typography 
 ## Areas for improvement
 
 - **E2E tests** — Vitest covers unit and integration. Playwright or Cypress tests for full user flows (search → select → view forecast) are missing.
-  **API level tests** API level testing is missing. MSW could be used to mock the API responses.
+- **API level tests** — API level testing is missing. MSW (Mock Service Worker) could be used to intercept and mock API responses at the network layer.
 - **Accessibility audit** — Keyboard navigation and screen reader testing beyond ARIA attributes hasn't been done systematically.
 - **Hourly forecast range** — The hourly list is capped at 24 hours from now. Extending to 7 days of hourly data with virtual scroll would require a library like `@tanstack/react-virtual`.
+- **Stale persisted location** — The selected location is persisted to `localStorage` via Zustand. If a user returns from a different physical location, the app continues showing weather for the previously stored city rather than re-running geolocation.
